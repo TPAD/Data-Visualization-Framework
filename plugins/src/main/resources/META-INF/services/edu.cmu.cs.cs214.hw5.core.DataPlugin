@@ -1,0 +1,3 @@
+edu.cmu.cs.cs214.hw5.core.data.TwitterDataPlugin
+edu.cmu.cs.cs214.hw5.core.data.WebpagePlugin
+edu.cmu.cs.cs214.hw5.core.data.NewsPlugin

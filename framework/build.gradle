@@ -1,0 +1,71 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'eclipse'
+apply plugin: 'jacoco'
+
+test.testLogging {
+    exceptionFormat "full"
+    events "failed", "passed", "skipped"
+}
+
+configurations.all {
+    resolutionStrategy {
+        force 'org.ow2.asm:asm:6.2.1'
+        forcedModules = [ 'org.ow2.asm:asm:6.2.1' ]
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+    compile 'junit:junit:4.12'
+    compile 'com.ibm.watson:ibm-watson:8.0.0'
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            url 'https://plugins.gradle.org/m2/'
+        }
+    }
+    dependencies {
+        classpath 'gradle.plugin.com.github.spotbugs:spotbugs-gradle-plugin:1.6.9'
+    }
+}
+
+apply plugin: 'com.github.spotbugs'
+
+spotbugs {
+    toolVersion = '3.1.8'
+}
+
+// To generate an HTML report instead of XML
+tasks.withType(com.github.spotbugs.SpotBugsTask) {
+    reports.xml.enabled = false
+    reports.html.enabled = true
+    ignoreFailures = true
+}
+
+jacoco {
+    toolVersion = "0.8.2"
+}
+
+jacocoTestReport {
+    reports {
+        xml.enabled false
+        csv.enabled false
+        html.destination file("${buildDir}/reports/coverage")
+    }
+}
+
+

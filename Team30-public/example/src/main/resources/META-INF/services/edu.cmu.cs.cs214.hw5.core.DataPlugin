@@ -1,0 +1,7 @@
+# List of plugins to be registered by framework.
+# Provide fully qualified class names here ( edu.cmu.cs.cs214.rec09.plugin.XXX ),
+# with one plugin per line.
+
+edu.cmu.cs.cs214.hw5.plugins_example.data.FileReaderPlugin
+edu.cmu.cs.cs214.hw5.plugins_example.data.WorldBankDataPlugin
+

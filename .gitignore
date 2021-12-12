@@ -1,0 +1,24 @@
+# Java class files
+*.class
+
+# Generated files
+bin/
+build/
+*.aux
+*.log
+*.out
+
+# Workspace configuration files
+.settings/
+.metadata/
+.idea/
+
+# Mac OS X hidden files
+.DS_Store
+.gradle/
+
+# API keys for Twitter plugin
+framework/src/main/resources/twitter4j.properties
+
+# Other API keys
+framework/src/main/resources/secret.properties

@@ -1,0 +1,4 @@
+include ':framework'
+project (':framework').projectDir = file('Team30-public/framework')
+include ':hw5c'
+

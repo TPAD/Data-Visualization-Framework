@@ -1,0 +1,15 @@
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'application'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile project(':framework')
+    compile 'com.google.code.gson:gson:2.8.6'
+    compile group: 'org.knowm.xchart', name: 'xchart', version: '3.2.2'
+}
+
+mainClassName = 'edu.cmu.cs.cs214.hw5.Main'
